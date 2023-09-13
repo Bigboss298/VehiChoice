@@ -1,0 +1,68 @@
+﻿@model VehiChoice.DTO.CreateCarRequestModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_BranchHeadLayout";
+}
+<div class="row">
+    <div class="col-md-4 car_create">
+        <h2 class="text-center my-3" style="color: coral">Add Car</h2>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" class="form-control" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group  mb-3">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3 mt-5">
+                <input type="file" asp-for="CarImage" class="form-control" />
+                <span asp-validation-for="CarImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="form-control car-btn" />
+            </div>
+            
+        </form>
+    </div>
+</div>
+<script>
+
+    const openNav = document.getElementById('openNavbar');
+    const sideNav = document.getElementById('sideNav');
+    const body = document.getElementById('body');
+
+    function OpenNav() {
+
+        sideNav.classList.toggle('all_side_navs_active');
+        body.classList.toggle('body-content_active');
+        if (openNav.classList.contains("bi-list")) {
+            openNav.classList.remove("bi-list");
+            openNav.classList.add("bi-x");
+        } else {
+            openNav.classList.remove("bi-x");
+            openNav.classList.add("bi-list");
+        }
+    };
+
+
+</script>

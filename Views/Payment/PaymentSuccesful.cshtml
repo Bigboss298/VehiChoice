@@ -1,0 +1,33 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true" style="width: 20vw; margin-left: 40%;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+           
+            <div class="modal-body text-center">
+                @* <img src="~/Images/success.png" /> <br /> *@
+                <i class="bi bi-check-lg" 
+                style="
+                       font-size: 90px;
+                        color: green;
+                        
+                    "
+                ></i> <br/>
+                <p><b>Congratulations!!!</b></p>
+                      Payment was successful!
+            </div>
+            <a asp-controller="User" asp-action="CustomerProfile" class="btn btn-success">Thank you</a>
+      
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  
+    $(document).ready(function () {
+        if(@TempData["showModal"] !== null && @TempData["showModal"] === true) {
+            $('#successModal').modal('show');
+        }
+    });
+</script>

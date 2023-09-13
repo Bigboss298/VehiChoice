@@ -1,0 +1,80 @@
+﻿@model VehiChoice.DTO.CreateBranchRequestModel
+
+@{
+    ViewData["Title"] = "CreateBranch";
+    ViewData["Name"] = "Admin";
+    Layout = "_AdminLayout";
+}
+
+<div class="row d-flex justify-content-center align-items-center">
+
+    <div class="col-2">
+        <img src="~/Images/car-silver.png" width="400" />
+    </div>
+    <div class="col-5 offset-2"> 
+        <div class="branch_register">
+            <h2 class="text-center" style="color: coral;">Register</h2>
+            <div class="">
+                    <div class="col-12">
+                        <form asp-action="CreateBranch" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group mb-4">
+                            <select asp-for="BranchLocation" class="form-control">
+                                    <option>------------------------Choose Location--------------------------</option>
+                                    <option value="1">Oyo State</option>
+                                    <option value="2">Osun State</option>
+                                    <option value="3">Lagos State</option>
+                                    <option value="4">Ogun State</option>
+                                </select>
+                                <span asp-validation-for="BranchLocation" class="text-danger mb-4"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="Password" class="form-control" placeholder="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="BranchHeadFile" class="form-control" placeholder="Image" />
+                                <span asp-validation-for="BranchHeadFile" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <select asp-for="Gender" class="form-control">
+                                    <option>----------------------Choose your Gender--------------------------</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        <div class="form-group mb-4">
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary form-control" />
+                            </div>
+                        </form>
+                    </div>
+                
+            </div>
+        </div>
+
+
+
+    </div> 
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

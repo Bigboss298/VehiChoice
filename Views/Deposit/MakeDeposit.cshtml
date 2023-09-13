@@ -1,0 +1,28 @@
+﻿@model VehiChoice.DTO.CreateDepositRequestModel
+@{
+    ViewData["Title"] = "Make Deposit";
+    ViewData["Pic"] = @ViewBag.Image;
+}
+
+@* @using (Html.BeginForm("MakeDeposit", "Deposit", FormMethod.Post))
+{
+ *@
+<div class="body-content" id="body">
+    <div><i id="openNavbar" onclick="OpenNav()" class="bi bi-list" style="font-size: 30px; color: coral; cursor: pointer;"><small>O</small></i> </div>
+
+ <form asp-action="MakeDeposit">
+    <div class="depo_form">
+        <h3 class="text-center" style="color: coral;">Make Deposit</h3>
+        <div class="form-group mt-5 mb-5">
+            <input type="number" name="Amount" asp-for="@Model.Amount" class="form-control" id="Amount" placeholder="amount" />
+        </div>
+        <div class="form-group mb-5">
+            <input type="number" name="WalletPin" asp-for="@Model.WalletPin" class="form-control" id="Pin" placeholder="pin" />
+        </div>
+        <div class="form-group mb-4">
+            <button type="submit" class="form-control btn btn-primary">Deposit</button>
+        </div>
+    </div>
+</form>
+    </div>
+}

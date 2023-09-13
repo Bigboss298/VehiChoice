@@ -1,0 +1,106 @@
+﻿@using System.Globalization;
+@model VehiChoice.Models.Entities.User_and_Wallet
+
+@{
+    ViewData["Title"] = "Customer";
+    ViewData["Name"] = Model.User.FirstName;
+    ViewData["Balance"] = Model.Wallet.WalletBalance.ToString("C", new CultureInfo("en-NG"));
+    ViewData["Pic"] = Model.User.ImageReferece;
+    
+}
+<div class="body-content" id="body">
+<div><i id="openNavbar" onclick="OpenNav()" class="bi bi-list" style="font-size: 30px; color: coral; cursor: pointer;"><small>O</small></i> </div>
+
+<section class="container" style="background-color: #eee;">
+    <div class="container pt-5 pb-2">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+        @*User Information*@
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="~/ProfilePictures/@Model.User.ImageReferece" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3">@Model.User.FirstName @Model.User.LastName</h5>
+                        <p class="text-muted mb-1">@Model.User.Email</p>
+                        <p class="text-muted mb-1">@Model.User.Location</p>
+                        <p class="text-muted mb-4">@Model.Wallet.WalletType</p>
+                        <div class="d-flex justify-content-center mb-2 row">
+                            <button type="button" class="btn btn-primary col-10">Edit</button>
+                            @* <button type="button" class="btn btn-outline-primary ms-1">Message</button> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Wallet Information*@
+            <div class="col-lg-8">
+                <div class="card mb-4 p-5">
+                    @* when adding something else remove the style property to make it look cool *@
+                    <div class="card-body" style="height: 48vh">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Wallet Number</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.Wallet.WalletNumber</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Wallet Name </p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.Wallet.WalletName</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Wallet Balance</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.Wallet.WalletBalance.ToString("C", new CultureInfo("en-NG"))</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Mobile</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.User.PhoneNumber</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Wallet Type</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.Wallet.WalletType Wallet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+  
+</section>
+    </div>
+
+<script src="https://kit.fontawesome.com/811a18812b.js" crossorigin="anonymous"></script>
+

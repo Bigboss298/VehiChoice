@@ -1,0 +1,555 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+/*
+html {
+    position: relative;
+    min-height: 100%;
+}*/
+
+body {
+    /*margin-bottom: 60px;*/
+    overflow-x: hidden;
+}
+
+
+/**********************Navbar********************/
+.nav_list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-right: 5vw;
+    font-weight: bolder;
+    margin-top: 20px;
+    color: coral;
+}
+
+
+.all_navs {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    /*border-bottom: 1px solid coral;*/
+    position: fixed;
+    width: 100vw;
+    margin-bottom: 30px;
+    z-index: 99;
+    background-color: #f5f5f5;
+}
+
+.brand {
+    font-size: 30px;
+    text-decoration: none;
+    color: coral;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.nav-space {
+    height: 10vh;
+}
+
+.brand_mate {
+    width: 3vw;
+    height: 6vh;
+    background-color: lightgrey;
+    border-radius: 100px;
+}
+
+.brands {
+    display: flex;
+    margin-left: 2vw;
+    align-items: center;
+}
+
+
+
+/**********************Home Page******************/
+.welcome-mssg {
+    position: relative;
+    margin: 0;
+    height: 90vh;
+    width: 100vw;
+    background: url(../Images/car-silver.png) no-repeat fixed center;
+}
+.content {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 45vh;
+    z-index: 2;
+    color: #F5F5F5;
+}
+.content h1 {
+    font-size: 150px;
+    font-weight: bolder;
+}
+
+.content p {
+    font-size: 20px;
+    font-weight: bolder;
+    color: darkgray;
+}
+
+.line::before {
+    position: absolute;
+    top: 80%;
+    content: '';
+    height: 1vh;
+    width: 8vw;
+    background: coral;
+    z-index: 3;
+    left: 46%;
+}
+
+/******************Logos*********************/
+.logos {
+    height: 32vh;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    background-color: #f5f5f5;
+    /* align-items: center;*/
+}
+
+/************************Dream Section**************/
+.dream_car {
+    background-color: coral;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dream_car p {
+    color: #fff;
+    font-weight: bold;
+}
+.dream_car h1 {
+    color: #f5f5f5;
+}
+
+
+/****************Latest Car Section************/
+.latest-car-section {
+    position: relative;
+    height: 160vh;
+    width: 100vw;
+}
+.latest-car-section::-webkit-scrollbar {
+    width: 0.5em;
+}
+/****************Deals****************/
+.deals {
+    padding-top: 70px;
+    padding-bottom: 70px; 
+}
+.deals h1{
+    font-size: 100px;
+    font-weight: bolder;
+    word-spacing: -30px;
+}
+.deals p{
+    font-weight: bolder;
+    font-size: 30px;
+    color: grey;
+}
+.deals span {
+    position: absolute;
+    top: 25%;
+    content: '';
+    height: 1vh;
+    width: 8vw;
+    background: coral;
+    z-index: 3;
+    left: 45%;
+}
+.search-field {
+   /* display: flex;
+    justify-content: center;
+    align-items: center;*/
+    position: relative;
+    height: 40vh;
+    width: 100vw;
+    background: url(../Images/service-img2.png) no-repeat fixed top;
+}
+
+
+/*******************Cars******************/
+.card-box {
+    display: grid;
+    grid-template: auto auto / repeat(4, 1fr);
+    grid-gap: 25px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.car-card {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    width: 20vw;
+    height: 40vh;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: grey;
+    /*box-shadow: 13px 13px 6px 3px grey;*/
+}
+
+.buy-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 13px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: coral;
+}
+    .buy-btn:hover {
+        color: #f5f5f5;
+        background-color: #000000;
+    }
+.empty-car-list {
+    font-weight: bolder;
+    font-size: 40px;
+    color: coral;
+}
+
+.shop-now {
+    position: absolute;
+    top: 93%;
+    left: 43%;
+    border: 1px solid coral;
+    background-color: coral;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+    .shop-now:hover {
+        border: 1px solid #000000;
+        background-color: #000000;
+        padding: 4px;
+        color: #ffffff;
+        padding: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+/****************Cars All Cars**************/
+.car-display{
+    width: 100vw;
+    height: 50vh;
+    overflow-y: scroll;
+}
+.car-display::-webkit-scrollbar{
+    width: 0.5em;
+}
+/********************Why******************/
+.why {
+    position: relative;
+    background-color: #f5f5f5;
+    height: 80vh;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.why span {
+        position: absolute;
+        top: 33%;
+        margin-top: 40px;
+        content: '';
+        height: 1vh;
+        width: 6vw;
+        background: coral;
+        z-index: 3;
+        left: 47%;
+}
+.why h1{
+    font-weight: bolder;
+    font-size: 100px;
+    /*color: coral;*/
+}
+.certs{
+        display: flex;
+        gap: 12em;
+        margin-top: 5em;
+}
+.cert_item{
+    display: flex;
+    flex-direction: column;
+    color: darkgrey;
+    font-size: 19px;
+}
+.foot {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    
+}
+.foot_back {
+    position: absolute;
+    top: 100%;
+    height: 100vh;
+    width: 100vw;
+    background: url(../Images/car_garage.webp) no-repeat fixed;
+    background-size: 100vw 100vh;
+    z-index: -1;
+}
+.foot_content{
+    position: absolute;
+    top: 50%;
+    height: 125vh;
+    width: 100vw;
+    background-color: #000000;
+    color: coral;
+}
+.foot_content h1{
+    color: coral;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 40px;
+    font-size: 90px;
+}
+.foot_content p{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: grey;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.icons i{
+    font-size: 40px;
+    color: grey;
+}
+.icons-items{
+    display: flex;
+    gap: 20px;
+}
+.icons small{
+    color: darkgrey;
+}
+.loc{
+    margin-top: 50px;
+    margin-left: 28%;
+}
+.social{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 30px;
+    color: darkgrey;
+}
+.foot_content hr{
+    color: lightgrey;
+    height: 0.8px;
+}
+.last{
+    color: lightgrey;
+    margin-left: 40%;
+}
+/****************Login Page********************/
+.login-form {
+    width: 30%;
+    box-shadow: 13px 13px 6px 3px grey;
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+    .login-form input {
+        margin-top: 40px;
+        border-radius: 10px;
+        height: 50px;
+        padding-left: 20px;
+    }
+
+    .login-form button {
+        margin-top: 40px;
+        border-radius: 10px;
+        border: none;
+        background: blue;
+        color: white;
+    }
+    .login-form p{
+        margin-top: 20px;
+    }
+.register {
+    height: 65vh;
+    overflow-y: scroll;
+    box-shadow: 13px 13px 6px 3px grey;
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding: 20px;
+    border-radius: 20px;
+}
+.register::-webkit-scrollbar {
+    width: 0.5em;
+}
+    .register input, select{
+        margin-top: 30px;
+        border-radius: 10px;
+        height: 50px;
+        padding-left: 20px;
+        
+    }
+    .register button {
+        margin-top: 40px;
+        border-radius: 10px;
+        border: none;
+        background: blue;
+        color: white;
+    }
+
+.branch_register {
+    height: 65vh;
+    overflow-y: scroll;
+    box-shadow: 13px 13px 6px 3px grey;
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding: 30px;
+    border-radius: 20px;
+}
+    .branch_register::-webkit-scrollbar {
+        width: 0.5em;
+    }
+.input {
+    width: 45vw;
+    margin-top: 30px;
+    border-radius: 10px;
+    height: 50px;
+    padding-left: 20px;
+    border: 3px solid grey;
+}
+/************************Side Nav**********************************/
+/*@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");*/
+.all_side_navs {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 92vh;
+    top: 8%;
+    gap: 20px;
+    left: -200px;
+    width: 200px;
+    transition: 0.7s;
+    background-color: coral;
+}
+
+.side-nav-list{
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+}
+.side-nav-list a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bolder;
+}
+.all_side_navs_active {
+    left: 0;
+}
+
+.body-content {
+    height: 95vh;
+    margin-left: 40px;
+    transition: 0.7s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.body-content_active{
+    margin-left: calc(200px + 40px);
+}
+.side_brand{
+    margin-left: 30px;
+}
+
+/********************Create Car**********************/
+.car_create {
+    margin-left: 30vw;
+    height: 70vh;
+    overflow-y: scroll;
+    border-radius: 10px;
+    box-shadow: 13px 13px 6px 3px grey;
+    border-left: 1px solid coral;
+    border-top: 1px solid coral;
+    padding: 20px;
+    border-radius: 20px;
+}
+.car_create::-webkit-scrollbar{
+    width: 0.5em;
+}
+
+.car-btn{
+    color: #fff;
+    background-color: coral;
+    font-weight: bolder;
+}
+
+
+/**********************Deposit Form*****************/
+.depo_form {
+    width: 40vw;
+    position: absolute;
+    top: 15%;
+    border: 5px solid Coral;
+    left: 30%;
+    padding: 40px;
+    background-color: #f5f5f5;
+
+}
+
+/*************************Admin Branch Page*****************/
+.branchs_page {
+    display: grid;
+    grid-template: auto auto / repeat(3, 1fr);
+    grid-gap: 25px;
+    padding-left: 20px;
+}

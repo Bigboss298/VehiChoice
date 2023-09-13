@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | VehiChoice</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Nurrdin_Biz_Ventures_MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="all_navs">
+                <div class="brands">
+                    <a class="brand" asp-area="" asp-controller="Home" asp-action="Index">VehiChoice</a>
+                </div>
+                <div class="">
+                    <ul class="nav_list">
+                        <li class="nav-item">
+                            Hello, @ViewData["Name"]
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="all_side_navs" id="sideNav">
+        <div>
+            <ul class="side-nav-list">
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="User" asp-action="AdminProfile">Admin</a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="Branch" asp-action="Branchs">Branch</a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="Car" asp-action="AllCars">Cars</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="side-nav-list">
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="User" asp-action="Logout">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <div class="body-content" id="body">
+        <div class="nav-space"></div>
+        <div class="container">
+            <div><i id="openNavbar" onclick="OpenNav()" class="bi bi-list" style="font-size: 30px; color: coral; cursor: pointer;"><small>O</small></i> </div>
+            <main role="main" class="">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+
+        const openNav = document.getElementById('openNavbar');
+        const sideNav = document.getElementById('sideNav');
+        const body = document.getElementById('body');
+
+        function OpenNav() {
+
+            sideNav.classList.toggle('all_side_navs_active');
+            body.classList.toggle('body-content_active');
+            if (openNav.classList.contains("bi-list")) {
+                openNav.classList.remove("bi-list");
+                openNav.classList.add("bi-x");
+            } else {
+                openNav.classList.remove("bi-x");
+                openNav.classList.add("bi-list");
+            }
+        };
+
+
+    </script>
+
+</body>
+</html>

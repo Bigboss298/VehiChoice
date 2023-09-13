@@ -1,0 +1,118 @@
+﻿@using System.Globalization;
+@model VehiChoice.Models.Entities.BranchInfo_and_UserViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["Name"] = Model.User.Location;
+    ViewData["Pics"] = Model.User.ImageReferece;
+    Layout = "_BranchHeadLayout";
+}
+
+
+
+<div>
+     @* <section class="py-5 style="background-color: #eee;"> *@
+        @*<div class="container">
+    <div class="row">
+    <div class="col">
+    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+    <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+    </ol>
+    </nav>
+    </div>
+    </div> *@
+
+    <div class="row">
+        @*User Information*@
+        <div class="col-lg-3 offset-1">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="~/ProfilePictures/@Model.User.ImageReferece" alt="avatar"
+                         class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">@Model.User.FirstName @Model.User.LastName</h5>
+                    <p class="text-muted mb-1">@Model.User.Email</p>
+                    <p class="text-muted mb-1">@Model.User.Location</p>
+                    <p class="text-muted mb-4">@Model.User.WalletType</p>
+
+                    <div class="d-flex justify-content-center mb-2 row">
+                        <button type="button" class="btn btn-primary col-10">Edit</button>
+                        @* <button type="button" class="btn btn-outline-primary ms-1">Message</button> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Wallet Information*@
+        <div class="col-lg-7">
+            <div class="card mb-4 p-5">
+                <h5 class="text-center text-primary">Branch Info</h5>
+                @* when adding something else remove the style property to make it look cool *@
+                <div class="card-body" style="height: 40vh">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">No of Sold Cars</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.SoldCars</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">No of Unsold Cars </p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.UnsoldCars</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">No of Customers</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.Customers</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Total No of Cars</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.Cars</p>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+        @*  </div>*@
+  @*   </section>  *@
+</div>
+<script>
+
+    const openNav = document.getElementById('openNavbar');
+    const sideNav = document.getElementById('sideNav');
+    const body = document.getElementById('body');
+
+    function OpenNav() {
+
+        sideNav.classList.toggle('all_side_navs_active');
+        body.classList.toggle('body-content_active');
+        if (openNav.classList.contains("bi-list")) {
+            openNav.classList.remove("bi-list");
+            openNav.classList.add("bi-x");
+        } else {
+            openNav.classList.remove("bi-x");
+            openNav.classList.add("bi-list");
+        }
+    };
+
+
+</script>
+
+

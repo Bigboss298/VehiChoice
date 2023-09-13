@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | VehiChoice</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Nurrdin_Biz_Ventures_MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div class="all_navs">
+                <div class="brands">
+                    <div class="brand_mate"></div>
+                    <a class="brand" asp-area="" asp-controller="Home" asp-action="Index">VehiChoice</a>
+                </div>
+                <div class="">
+                    <ul class="nav_list">
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="User" asp-action="Logout">Sign Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Car" asp-action="AllCars">All Cars</a>
+                        </li>
+                        <li class="nav-item">
+                            @ViewData["Name"]
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="nav-space"></div>
+            <div role="main" class="pb-3">
+                @RenderBody()
+            </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

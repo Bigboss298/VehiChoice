@@ -1,0 +1,168 @@
+﻿@using System.Globalization;
+@model VehiChoice.Models.Entities.HomeEntity
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["Pic"] = Model.ImageReference;
+}
+<section class="welcome-mssg">
+    <div class="content text-center">
+
+        <h1>VehiChoice</h1>
+        <p>FIND THE CAR OF YOUR DREAM</p>
+        <span class="line"></span>
+    </div>
+</section>
+<section class="logos">
+    <img src="~/Images/toyota-logo.png" width="130" height="150" style="margin-top: -10px ;" />
+    <img src="~/Images/bmw_logo.png" width="100" height="100" />
+    <img src="~/Images/benz_logo.png" width="130" height="100" />
+    <img src="~/Images/honda_logo.png" width="100" height="100" />
+</section>
+<div class="text-center dream_car">
+    <h1>What we do</h1>
+    <p>
+        Every car has a story, and we're here to help you find yours. <br />
+        Our mission is to revolutionize the way you discover and acquire vehicles, <br />
+        ensuring that every step of the journey is as seamless and enjoyable as possible. <br />
+        With a commitment to transparency, quality, and personalized service, <br />
+        we strive to be your trusted partner in the pursuit of automotive perfection. <br />
+        Welcome to a world where your dream car is just a click away.
+    </p>
+</div>
+<section class="latest-car-section">
+    <div class="text-center deals">
+        <h1>Best Deals</h1>
+        <p>AMAZING CARS AT AMAZING PRICES</p>
+        <span></span>
+    </div>
+    @if (Model != null && Model.Cars.Any())
+    {
+        <section class="card-box">
+
+            @foreach (var item in Model.Cars.Take(8))
+            {
+
+                <div class="car-cards">
+                    <div class="car-card">
+                        <div class="car-card-img">
+                            <img src="~/ProfilePictures/@item.CarImageReference" width="200" height="130" />
+                        </div>
+                        <div class="car-card-body">
+                            <p>
+                                <small>
+                                    <b>
+                                        @item.Brand @item.Name @item.Model<br>
+                                        @item.Price.ToString("C", new CultureInfo("en-NG"))
+                                    </b>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="">
+                            <a asp-controller="Payment"
+                               asp-action="MakePayment"
+                               asp-route-brand="@item.Brand"
+                               asp-route-name="@item.Name"
+                               asp-route-color="@item.Color"
+                               asp-route-model="@item.Model"
+                               asp-route-branch="@item.BranchLocation"
+                               asp-route-uin="@item.UniqueNumber"
+                               asp-route-amount="@item.Price"
+                               class="buy-btn">
+                                Buy Now
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+            <div>
+                <a class="shop-now" asp-controller="Car" asp-action="AllCars">VIEW ALL DEALS</a>
+            </div>
+        </section>
+    }
+    else
+    {
+        <p class="empty-car-list"><marquee direction="left">No car at the store presently</marquee></p>
+    }
+</section>
+
+<section class="why">
+    <div class="why_content">
+        <h1>Why VehiChoice?</h1>
+        <span></span>
+    </div>
+    <div class="certs">
+        <div class="cert_item">
+            <img src="~/Images//delivery.gif" width="150" />
+            <b>Fast delivery</b>
+        </div>
+        <div class="cert_item">
+            <img src="~/Images/images.gif" width="150" />
+            <b>Certified motors</b>
+        </div>
+        <div class="cert_item">
+            <img src="~/Images/text_drive.gif" width="150" />
+            <b>Test Driving</b>
+        </div>
+    </div>
+</section>
+<section class="foot">
+    <div class="foot_back"></div>
+    <div class="foot_content">
+        <h1>Come visit us!</h1>
+        <p>AND DRIVE AWAY WITH YOUR NEW CAR</p>
+        <section class="icons">
+            <div class="icons-items">
+                <div>
+                    <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                    <small>abdullahbisiriyu988@gmail.com <br /> abdul.k.1102@gmail.com</small>
+                </div>
+            </div>
+            <div class="icons-items">
+                <div>
+                    <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                    <small>Gbonogun, Odo-eran road, <br /> Abeokuta, Ogun State</small>
+                </div>
+            </div>
+            <div class="icons-items">
+                <div>
+                    <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div>
+                    <small>+2348155850462 <br /> +2348160206979</small>
+                </div>
+            </div>
+        </section>
+        <section class="loc">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.538658980654!2d3.4036236741868917!3d7.179203015198122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a49ee45548789%3A0xf02955507f651331!2sOdo%20Eran%2C%20110121%2C%20Abeokuta%2C%20Ogun%20State!5e0!3m2!1sen!2sng!4v1694124501024!5m2!1sen!2sng" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <section class="social">
+            <a>
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a>
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a>
+                <i class="bi bi-instagram"></i>
+            </a>
+        </section>
+        <hr />
+        <small class="last"> &copy; 2023 by Bigboss, Powered by VehiChoice</small>
+    </div>
+
+</section>
+
+
+<script>
+    document.addEventListener('scroll', function () {
+        const parallaxBackground = document.querySelector('.foot_back');
+        const scrollPosition = window.scrollY;
+
+        parallaxBackground.style.transform = `translateY(-${scrollPosition * 0.3}px)`; /* Adjust the multiplier for different levels of parallax */
+    });
+</script>

@@ -1,0 +1,159 @@
+﻿@using System.Globalization;
+@model IEnumerable<VehiChoice.Models.Entities.Car>
+
+@{
+    ViewData["Title"] = "All cars";
+    ViewData["Pic"] = ViewBag.Image;
+    if (ViewBag.Role == "SuperAdmin")
+    {
+        Layout = "_AdminLayout";
+        ViewData["Name"] = "Admin";
+    }
+    else if (ViewBag.Role == "BranchHead")
+    {
+        Layout = "_BranchHeadLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+    
+
+}
+
+<div id="search-field" class="search-field">
+    <form id="form" class="d-flex justify-content-center align-items-center">
+        <input type="search" placeholder="search"
+               style="
+               position: absolute;
+               top: 45%;
+               left: 12%;
+               width: 70vw;
+               height: 7vh;
+               border-radius: 20px;
+               border: 3px solid coral;
+               padding: 25px;
+               background-color: #f5f5f5;
+               "
+               id="searchbox"
+               name="searchbox" />
+        @* <button type="submit"><i class="bi bi-search"></i></button> *@
+    </form>
+</div>
+<section id="car-display" class="mt-5 car-display">
+
+    @if (Model != null && Model.Any())
+    {
+        <section id="card-box" class="card-box">
+            @foreach (var item in Model)
+            {
+                <div class="container">
+                    <div class="car-cards">
+                        <div class="car-card">
+                            <div class="car-card-img">
+                                <img src="~/ProfilePictures/@item.CarImageReference" width="200" height="100" />
+                            </div>
+                            <div class="car-card-body mb-3">
+                                <b> @item.Brand </b>
+                                <b> @item.Name </b>
+                                <b>@item.Model</b>
+
+                                <br>
+                                <b>
+                                    @item.Price.ToString("C", new CultureInfo("en-NG"))
+                                </b> <br>
+                                <b>
+                                    @item.BranchLocation
+                                </b> <br>
+                                <b style="color: coral;">
+                                    @(item.Status == VehiChoice.Models.Enums.Status.Sold ? "Out Of Stock" : "Available")
+                                </b>
+                            </div>
+
+                            @if (ViewBag.Role == "Customer")
+                            {
+                                @if (item.Status != VehiChoice.Models.Enums.Status.Sold)
+                                {
+                                    <div class="buy" id="buy">
+                                        <a asp-controller="Payment"
+                                           asp-action="MakePayment"
+                                           asp-route-brand="@item.Brand"
+                                           asp-route-name="@item.Name"
+                                           asp-route-color="@item.Color"
+                                           asp-route-model="@item.Model"
+                                           asp-route-branch="@item.BranchLocation"
+                                           asp-route-uin="@item.UniqueNumber"
+                                           asp-route-amount="@item.Price"
+                                           class="buy-btn">
+                                            Buy Now
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="buy" id="buy">
+                                        <button disabled class="buy-btn">
+                                           Sold Out
+                                        </button>
+                                    </div>
+                                }
+
+                    }
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    }
+    else
+    {
+        <p class="empty-car-list"><marquee direction="left">No car at the store presently</marquee></p>
+    }
+</section>
+
+
+<script>
+    var field = document.getElementById('search-field');
+    var cards = document.getElementById('card-box');
+    var carDisplay = document.getElementById('car-display');
+    var buy_button = document.getElementById('buy');
+    
+
+
+    if ("@ViewBag.Role" === "Customer") {
+        field.style.display = "block";
+        cards.style.display = "grid";
+        cards.style.gridTemplate = "auto auto / repeat(4, 1fr)";
+    }
+    else {
+        field.style.display = "none";
+        carDisplay.style.width = "80vw";
+        carDisplay.style.height = "100vh";
+        cards.style.display = "grid";
+        cards.style.gridTemplate = "auto auto / repeat(3, 1fr)";
+
+    }
+    document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevents the form from submitting traditionally
+
+        var searchValue = document.getElementById('searchbox').value.toLowerCase();
+
+        var items = document.querySelectorAll('.car-card');
+
+        items.forEach(function (item) {
+            var itemBrand = item.getElementsByTagName('b')[0].innerText.toLowerCase();
+            var itemName = item.getElementsByTagName('b')[1].innerText.toLowerCase();
+            var itemModel = item.getElementsByTagName('b')[2].innerText.toLowerCase();
+
+            if (itemBrand.includes(searchValue) || itemName.includes(searchValue) || itemModel.includes(searchValue)) {
+                item.style.display = 'flex';
+                item.style.flexDirection = 'column';
+                item.style.alignItems = 'center';
+                item.style.alignContent = 'space-between';
+                
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+</script>

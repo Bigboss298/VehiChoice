@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | VehiChoice</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Nurrdin_Biz_Ventures_MVC.styles.css" asp-append-version="true" />
+    <link rel=" stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div class="all_navs">
+                <div class="brands">
+                    <a class="brand" asp-area="" asp-controller="Home" asp-action="Index">VehiChoice</a>
+                </div>
+                <ul class="nav_list">
+                    <li class="nav-item">
+                        @ViewData["Name"]
+                    </li>
+                    <li class="nav-item">
+                        <img src="~/ProfilePictures/@ViewData["Pics"]" width="50px" height="50px" style="border-radius: 50px; margin-left: 25px"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="all_side_navs" id="sideNav">
+        <div>
+            <ul class="side-nav-list">
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="Car" asp-action="Create">Add car</a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="Car" asp-action="AllCars">All Cars</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="side-nav-list">
+                <li class="side-nav-item">
+                    <a class="side-nav-link" asp-area="" asp-controller="User" asp-action="Logout">Sign Out</a>
+                </li>
+           </ul>
+        </div>
+
+    </section>
+
+    <div class="nav-space"></div>
+    <div class="body-content" id="body">
+        <div><i id="openNavbar" onclick="OpenNav()" class="bi bi-list" style="font-size: 30px; color: coral;"><small>hi</small></i> </div>
+        
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
